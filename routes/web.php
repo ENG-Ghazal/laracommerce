@@ -53,7 +53,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group( function (){
                     Route::get('{id}/edit','edit')->name('edit');
                     Route::put('{id}/edit','update')->name('update');
                     Route::get('{id}/delete','destroy')->name('delete');
-                    
+
                     Route::get('product-image/{product_image_id}/delete','destroyProductImage')->name('delete.product-image');
            });
 
@@ -61,7 +61,22 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group( function (){
       //  end product routes
 
     //  start Brands Routes
-    Route::get('/brands',App\Http\Livewire\Admin\Brand\Index::class)->name('brand.index');
+    Route::get('/brand',App\Http\Livewire\Admin\Brand\Index::class)->name('admin.brand.index');
     // end Brands Routes
+
+     //  start Colors Routes
+     Route::name('admin.color.')
+     ->controller(App\Http\Controllers\Admin\ColorController::class)
+     ->prefix('color')
+     ->group(function () {
+             Route::get('','index')->name('index');
+             Route::get('create','create')->name('create');
+             Route::post('create','store')->name('store');
+             Route::get('{id}/edit','edit')->name('edit');
+             Route::put('{id}/edit','update')->name('update');
+             Route::get('{id}/delete','destroy')->name('delete');
+     });
+
+     // end colors Routes
 
 });

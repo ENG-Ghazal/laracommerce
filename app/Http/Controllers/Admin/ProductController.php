@@ -140,4 +140,5 @@ class ProductController extends Controller
        return redirect()->back()->with('message','product image deleted successfuly ');
 
    }
+  
 }

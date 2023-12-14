@@ -34,12 +34,17 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('brand.index') }}">
+        <a class="nav-link" href="{{ route('admin.brand.index') }}">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Brands</span>
         </a>
       </li>
-
+   <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.color.index') }}">
+          <i class="mdi mdi-view-headline menu-icon"></i>
+          <span class="menu-title">Colors</span>
+        </a>
+      </li>
     </ul>
   </nav>
   <!-- partial -->
