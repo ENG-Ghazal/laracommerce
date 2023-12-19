@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductImage;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\ProductColor;
 class Product extends Model
 {
     use HasFactory;
@@ -34,5 +35,8 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
-   
+    public function productColors(){
+        return $this->hasMany(ProductColor::class,'product_id','id');
+    }
+
 }

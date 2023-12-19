@@ -42,6 +42,10 @@
                     <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
                       Product Image </button>
                   </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab" aria-controls="color-tab-pane" aria-selected="false">
+                      Product Colors </button>
+                  </li>
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
@@ -138,8 +142,30 @@
 
                 </div>
 
+<div class="tab-pane fade" id="color-tab-pane" role="tabpanel" aria-labelledby="color-tab" tabindex="0">
+      <div class="mb-3">
+
+    <label class="">Select  Colors</label>
+                    <div class="row">
+
+                            @forelse ($colors as $color)
+                            <div class="col-md-12 mb-3">
+                               <div class="p-2 border">
+                                Color :  <input type="checkbox" name="colors[{{ $color->id }}]" value="{{ $color->id }}" > {{ $color->name }} &ensp;&ensp;&ensp;
+                                Quantity :  <input type="number" name="colorquantity[{{ $color->id }}]" style="width:70px;border:1px solid">
+                            </div>
+                            </div>
+                            @empty
+                            <h1>No Colors Found</h1>
+                            @endforelse
+
+                        </div>
 
 
+
+                 </div>
+
+       </div>
               </div>
               <div>
                 <button type="submit" class="btn btn-primary">
